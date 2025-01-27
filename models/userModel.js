@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
   cart: [],
   orders: [],
   contact: Number,
-  picture: db,
+  picture: String,
 });
 
 module.exports = mongoose.model("user", userSchema);
