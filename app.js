@@ -24,11 +24,9 @@ app.use(
 );
 
 app.use(flash());
-
+app.use("/", indexRouter);
 app.use("/admin", adminRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
-
-app.use("/", indexRouter);
 
 app.listen(3000);

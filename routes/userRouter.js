@@ -9,4 +9,8 @@ router.post("/register", registeruser);
 
 router.post("/login", loginuser);
 
+router.get("/shop", function (req, res) {
+  res.render("shop");
+});
+
 module.exports = router;

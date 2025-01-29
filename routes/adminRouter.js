@@ -23,4 +23,8 @@ if (process.env.Node_ENV == "development") {
     }
   });
 }
+
+router.get("/createproduct", function (req, res) {
+  res.render("createproduct");
+});
 module.exports = router;

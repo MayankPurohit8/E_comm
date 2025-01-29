@@ -6,8 +6,12 @@ const { generatetoken } = require("../utils/generatetoken");
 module.exports.registeruser = async (req, res) => {
   try {
     let { email, password, name } = req.body;
+
+    if (!email || !password || !name) {
+      return res.status(400).redirect("/");
+    }
     if ((await userModel.findOne({ email: email })) != null) {
-      res.send("user exists with the email");
+      return res.status(400).redirect("/");
     }
     bcrypt.genSalt(10, async function (err, salt) {
       bcrypt.hash(password, salt, async function (err, hash) {
@@ -31,12 +35,13 @@ module.exports.registeruser = async (req, res) => {
 
 module.exports.loginuser = async (req, res) => {
   const { email, password } = req.body;
+
   let user = await userModel.findOne({ email: email });
-  if (user == null) res.send("user does not exits");
+  if (user == null) return res.status(400).redirect("/");
   else {
     bcrypt.compare(password, user.password, function (err, result) {
       if (!result) {
-        res.redirect("/");
+        return res.redirect("/");
       }
     });
   }

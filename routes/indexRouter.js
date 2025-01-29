@@ -7,8 +7,8 @@ router.get("/", function (req, res) {
   res.render("index", { error });
 });
 
-router.get("/shop", isloggedin, function (req, res) {
-  res.send("hello");
+router.get("/shop", function (req, res) {
+  res.render("shop");
 });
 
 module.exports = router;
