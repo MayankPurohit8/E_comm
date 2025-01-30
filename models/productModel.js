@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
   name: String,
   price: Number,
   discount: Number,
-  image: db,
-  bg_Color: String,
-  panel_Color: String,
+  image: String,
+  bgColor: String,
+  panelColor: String,
   textColor: String,
 });
 
-module.exports = mongoose.model("admin", adminSchema);
+module.exports = mongoose.model("product", productSchema);
